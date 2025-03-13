@@ -1,4 +1,4 @@
-../Core/Src/stream_process.c:18:6:draw_board	40	static
-../Core/Src/stream_process.c:49:6:parse_fen	32	static
-../Core/Src/stream_process.c:71:6:process_stream	184	static
-../Core/Src/stream_process.c:119:6:init_board_state	16	static
+../Core/Src/stream_process.c:19:6:draw_board	40	static
+../Core/Src/stream_process.c:59:6:parse_fen	32	static
+../Core/Src/stream_process.c:80:6:process_stream	480	static
+../Core/Src/stream_process.c:219:6:init_board_state	16	static
