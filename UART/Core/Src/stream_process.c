@@ -82,9 +82,9 @@ void process_stream(const char* buffer) {
 	        parse_fen(fen);
 	    }
 	}
-	const char* w_player_start = strstr(buffer, "\"players\":[{\"color\":\"white\",\"user\":{\"name\":\"");
+	const char* w_player_start = strstr(buffer, "[{\"color\":\"white\",\"user\":{\"name\":\"");
 	if (w_player_start) {
-		w_player_start += 44;
+		w_player_start += 34;
 		const char* w_player_end = strchr(w_player_start, '"');
 		if (w_player_end) {
 			char w_player[128];
@@ -98,9 +98,9 @@ void process_stream(const char* buffer) {
 		}
 	}
 
-	const char* b_player_start = strstr(buffer, "\"black\",\"user\":{\"name\":\"");
+	const char* b_player_start = strstr(buffer, "},{\"color\":\"black\",\"user\":{\"name\":\"");
 	if (b_player_start) {
-	    b_player_start += 24; // Sauter jusqu'au début du nom
+	    b_player_start += 35; // Sauter jusqu'au début du nom
 	    const char* b_player_end = strchr(b_player_start, '"');
 	    if (b_player_end) {
 	        char b_player[128];

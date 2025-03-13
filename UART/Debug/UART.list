@@ -7,23 +7,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         00009f30  080001d0  080001d0  000011d0  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       000020ec  0800a100  0800a100  0000b100  2**2
+  2 .rodata       000020e8  0800a100  0800a100  0000b100  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  0800c1ec  0800c1ec  0000e02c  2**0
+  3 .ARM.extab    00000000  0800c1e8  0800c1e8  0000e02c  2**0
                   CONTENTS
-  4 .ARM          00000008  0800c1ec  0800c1ec  0000d1ec  2**2
+  4 .ARM          00000008  0800c1e8  0800c1e8  0000d1e8  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  0800c1f4  0800c1f4  0000e02c  2**0
+  5 .preinit_array 00000000  0800c1f0  0800c1f0  0000e02c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  0800c1f4  0800c1f4  0000d1f4  2**2
+  6 .init_array   00000004  0800c1f0  0800c1f0  0000d1f0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .fini_array   00000004  0800c1f8  0800c1f8  0000d1f8  2**2
+  7 .fini_array   00000004  0800c1f4  0800c1f4  0000d1f4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .data         0000002c  20000000  0800c1fc  0000e000  2**2
+  8 .data         0000002c  20000000  0800c1f8  0000e000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          00000a3c  2000002c  0800c228  0000e02c  2**2
+  9 .bss          00000a3c  2000002c  0800c224  0000e02c  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  20000a68  0800c228  0000ea68  2**0
+ 10 ._user_heap_stack 00000600  20000a68  0800c224  0000ea68  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  0000e02c  2**0
                   CONTENTS, READONLY
@@ -2602,7 +2602,7 @@ void process_stream(const char* buffer) {
  8001208:	f7ff ff7a 	bl	8001100 <parse_fen>
 	    }
 	}
-	const char* w_player_start = strstr(buffer, "\"players\":[{\"color\":\"white\",\"user\":{\"name\":\"");
+	const char* w_player_start = strstr(buffer, "[{\"color\":\"white\",\"user\":{\"name\":\"");
  800120c:	4945      	ldr	r1, [pc, #276]	@ (8001324 <process_stream+0x18c>)
  800120e:	6878      	ldr	r0, [r7, #4]
  8001210:	f008 ff22 	bl	800a058 <strstr>
@@ -2611,9 +2611,9 @@ void process_stream(const char* buffer) {
  8001218:	f8d7 30a0 	ldr.w	r3, [r7, #160]	@ 0xa0
  800121c:	2b00      	cmp	r3, #0
  800121e:	d038      	beq.n	8001292 <process_stream+0xfa>
-		w_player_start += 44;
+		w_player_start += 34;
  8001220:	f8d7 30a0 	ldr.w	r3, [r7, #160]	@ 0xa0
- 8001224:	332c      	adds	r3, #44	@ 0x2c
+ 8001224:	3322      	adds	r3, #34	@ 0x22
  8001226:	f8c7 30a0 	str.w	r3, [r7, #160]	@ 0xa0
 		const char* w_player_end = strchr(w_player_start, '"');
  800122a:	2122      	movs	r1, #34	@ 0x22
@@ -2660,7 +2660,7 @@ void process_stream(const char* buffer) {
 		}
 	}
 
-	const char* b_player_start = strstr(buffer, "\"black\",\"user\":{\"name\":\"");
+	const char* b_player_start = strstr(buffer, "},{\"color\":\"black\",\"user\":{\"name\":\"");
  8001292:	4926      	ldr	r1, [pc, #152]	@ (800132c <process_stream+0x194>)
  8001294:	6878      	ldr	r0, [r7, #4]
  8001296:	f008 fedf 	bl	800a058 <strstr>
@@ -2669,9 +2669,9 @@ void process_stream(const char* buffer) {
  800129e:	f8d7 3094 	ldr.w	r3, [r7, #148]	@ 0x94
  80012a2:	2b00      	cmp	r3, #0
  80012a4:	d037      	beq.n	8001316 <process_stream+0x17e>
-	    b_player_start += 24; // Sauter jusqu'au début du nom
+	    b_player_start += 35; // Sauter jusqu'au début du nom
  80012a6:	f8d7 3094 	ldr.w	r3, [r7, #148]	@ 0x94
- 80012aa:	3318      	adds	r3, #24
+ 80012aa:	3323      	adds	r3, #35	@ 0x23
  80012ac:	f8c7 3094 	str.w	r3, [r7, #148]	@ 0x94
 	    const char* b_player_end = strchr(b_player_start, '"');
  80012b0:	2122      	movs	r1, #34	@ 0x22
@@ -2727,7 +2727,7 @@ void process_stream(const char* buffer) {
  8001320:	0800a148 	.word	0x0800a148
  8001324:	0800a150 	.word	0x0800a150
  8001328:	20000014 	.word	0x20000014
- 800132c:	0800a180 	.word	0x0800a180
+ 800132c:	0800a174 	.word	0x0800a174
  8001330:	ffa52a2a 	.word	0xffa52a2a
 
 08001334 <init_board_state>:
@@ -2899,7 +2899,7 @@ LoopFillZerobss:
   ldr r1, =_edata
  80013ec:	2000002c 	.word	0x2000002c
   ldr r2, =_sidata
- 80013f0:	0800c1fc 	.word	0x0800c1fc
+ 80013f0:	0800c1f8 	.word	0x0800c1f8
   ldr r2, =_sbss
  80013f4:	2000002c 	.word	0x2000002c
   ldr r4, =_ebss
@@ -6328,7 +6328,7 @@ static uint32_t DMA_CalcBaseAndBitshift(DMA_HandleTypeDef *hdma)
  80027f4:	4770      	bx	lr
  80027f6:	bf00      	nop
  80027f8:	aaaaaaab 	.word	0xaaaaaaab
- 80027fc:	0800c0e0 	.word	0x0800c0e0
+ 80027fc:	0800c0dc 	.word	0x0800c0dc
  8002800:	fffffc00 	.word	0xfffffc00
 
 08002804 <DMA_CheckFifoParam>:
@@ -15013,7 +15013,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  8005d92:	bf00      	nop
  8005d94:	40023c00 	.word	0x40023c00
  8005d98:	40023800 	.word	0x40023800
- 8005d9c:	0800a19c 	.word	0x0800a19c
+ 8005d9c:	0800a198 	.word	0x0800a198
  8005da0:	20000008 	.word	0x20000008
  8005da4:	20000020 	.word	0x20000020
 
@@ -15268,7 +15268,7 @@ uint32_t HAL_RCC_GetPCLK1Freq(void)
  8005f68:	4618      	mov	r0, r3
  8005f6a:	bd80      	pop	{r7, pc}
  8005f6c:	40023800 	.word	0x40023800
- 8005f70:	0800a1ac 	.word	0x0800a1ac
+ 8005f70:	0800a1a8 	.word	0x0800a1a8
 
 08005f74 <HAL_RCC_GetPCLK2Freq>:
   * @note   Each time PCLK2 changes, this function must be called to update the
@@ -15294,7 +15294,7 @@ uint32_t HAL_RCC_GetPCLK2Freq(void)
  8005f90:	4618      	mov	r0, r3
  8005f92:	bd80      	pop	{r7, pc}
  8005f94:	40023800 	.word	0x40023800
- 8005f98:	0800a1ac 	.word	0x0800a1ac
+ 8005f98:	0800a1a8 	.word	0x0800a1a8
 
 08005f9c <HAL_RCC_GetClockConfig>:
   * will be configured.
@@ -26450,7 +26450,7 @@ USBH_StatusTypeDef USBH_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8009fea:	4158      	adcs	r0, r3
  8009fec:	4770      	bx	lr
  8009fee:	bf00      	nop
- 8009ff0:	0800c0e8 	.word	0x0800c0e8
+ 8009ff0:	0800c0e4 	.word	0x0800c0e4
 
 08009ff4 <toupper>:
  8009ff4:	4b03      	ldr	r3, [pc, #12]	@ (800a004 <toupper+0x10>)
@@ -26460,7 +26460,7 @@ USBH_StatusTypeDef USBH_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8009ffe:	bf08      	it	eq
  800a000:	3820      	subeq	r0, #32
  800a002:	4770      	bx	lr
- 800a004:	0800c0e9 	.word	0x0800c0e9
+ 800a004:	0800c0e5 	.word	0x0800c0e5
 
 0800a008 <memset>:
  800a008:	4402      	add	r2, r0
@@ -26551,10 +26551,10 @@ USBH_StatusTypeDef USBH_Get_USB_Status(HAL_StatusTypeDef hal_status)
  800a0b6:	4798      	blx	r3
  800a0b8:	3601      	adds	r6, #1
  800a0ba:	e7f2      	b.n	800a0a2 <__libc_init_array+0x1e>
- 800a0bc:	0800c1f4 	.word	0x0800c1f4
- 800a0c0:	0800c1f4 	.word	0x0800c1f4
- 800a0c4:	0800c1f4 	.word	0x0800c1f4
- 800a0c8:	0800c1f8 	.word	0x0800c1f8
+ 800a0bc:	0800c1f0 	.word	0x0800c1f0
+ 800a0c0:	0800c1f0 	.word	0x0800c1f0
+ 800a0c4:	0800c1f0 	.word	0x0800c1f0
+ 800a0c8:	0800c1f4 	.word	0x0800c1f4
 
 0800a0cc <memcpy>:
  800a0cc:	440a      	add	r2, r1

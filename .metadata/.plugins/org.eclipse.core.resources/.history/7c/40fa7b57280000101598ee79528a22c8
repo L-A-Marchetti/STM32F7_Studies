@@ -1,0 +1,185 @@
+/*
+ * stream_process.c
+ *
+ *  Created on: Mar 13, 2025
+ *      Author: lam
+ */
+
+#include "stream_process.h"
+#include <string.h>
+
+#define BOARD_SIZE 8
+
+int x_center = (480 / 2) - (4 * 24);
+int y_center = (272 / 2) - (4 * 24);
+
+static char previous_board[BOARD_SIZE][BOARD_SIZE];
+
+void draw_board(const char piece, int row, int col) {
+	if (previous_board[row][col] == piece) return;
+    BSP_LCD_SetFont(PIECE_FONT);
+
+    // Définir la taille des cases
+    const int SQUARE_SIZE = PIECE_FONT_SIZE;
+
+    // Déterminer la couleur de la case
+    uint32_t square_color = ((row + col) % 2 == 0) ? LCD_COLOR_LIGHTGRAY : LCD_COLOR_BROWN;
+
+    // Dessiner le carré de la case
+    BSP_LCD_SetBackColor(square_color);
+    BSP_LCD_FillRect(col * SQUARE_SIZE + x_center, row * SQUARE_SIZE + y_center, SQUARE_SIZE, SQUARE_SIZE);
+
+    // Déterminer la couleur de la pièce
+    char display_piece = piece;
+    if (islower(piece)) {
+        BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
+        display_piece = toupper(piece);
+    } else {
+        BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
+    }
+
+    // Afficher la pièce
+    char piece_str[2] = {display_piece, '\0'};
+    BSP_LCD_DisplayStringAt(col * SQUARE_SIZE + x_center, row * SQUARE_SIZE + y_center, (uint8_t*)piece_str, LEFT_MODE);
+    previous_board[row][col] = piece;
+}
+
+
+
+void parse_fen(const char* fen) {
+    int row = 0, col = 0;
+
+    while (*fen && *fen != ' ') {
+        if (*fen == '/') {
+            row++;
+            col = 0;
+        } else if (*fen >= '1' && *fen <= '8') {
+            int empty_squares = *fen - '0';
+            for (int i = 0; i < empty_squares; i++) {
+                draw_board(' ', row, col);
+                col++;
+            }
+        } else {
+            draw_board(*fen, row, col);
+            col++;
+        }
+        fen++;
+    }
+}
+
+
+void process_stream(const char* buffer) {
+	const char* fen_start = strstr(buffer, "\"fen\":\"");
+	if (fen_start) {
+	    fen_start += 7; // Sauter "fen":"
+	    const char* fen_end = strchr(fen_start, '"');
+	    if (fen_end) {
+	        char fen[128];
+	        int fen_length = fen_end - fen_start;
+	        strncpy(fen, fen_start, fen_length);
+	        fen[fen_length] = '\0';
+	        //debug_log(0, (char*)fen, 0);
+	        parse_fen(fen);
+	    }
+	}
+	regex_t white_regex, black_regex, white_title_regex, black_title_regex;
+	    regmatch_t matches[2];
+
+	    // Compiler les expressions régulières
+	    regcomp(&white_regex, "\"color\":\"white\".*?\"name\":\"([^\"]+)\"", REG_EXTENDED);
+	    regcomp(&black_regex, "\"color\":\"black\".*?\"name\":\"([^\"]+)\"", REG_EXTENDED);
+	    regcomp(&white_title_regex, "\"color\":\"white\".*?\"title\":\"([^\"]+)\"", REG_EXTENDED);
+	    regcomp(&black_title_regex, "\"color\":\"black\".*?\"title\":\"([^\"]+)\"", REG_EXTENDED);
+
+	    // Regex pour les ratings
+	    regex_t white_rating_regex, black_rating_regex;
+	    regcomp(&white_rating_regex, "\"color\":\"white\".*?\"rating\":([0-9]+)", REG_EXTENDED);
+	    regcomp(&black_rating_regex, "\"color\":\"black\".*?\"rating\":([0-9]+)", REG_EXTENDED);
+
+	    // Extraire le nom du joueur blanc
+	    char white_name[64] = "";
+	    if (regexec(&white_regex, buffer, 2, matches, 0) == 0) {
+	        int len = matches[1].rm_eo - matches[1].rm_so;
+	        strncpy(white_name, buffer + matches[1].rm_so, len);
+	        white_name[len] = '\0';
+	    }
+
+	    // Extraire le titre du joueur blanc (s'il existe)
+	    char white_title[8] = "";
+	    if (regexec(&white_title_regex, buffer, 2, matches, 0) == 0) {
+	        int len = matches[1].rm_eo - matches[1].rm_so;
+	        strncpy(white_title, buffer + matches[1].rm_so, len);
+	        white_title[len] = '\0';
+	    }
+
+	    // Extraire le rating du joueur blanc
+	    int white_rating = 0;
+	    if (regexec(&white_rating_regex, buffer, 2, matches, 0) == 0) {
+	        char rating_str[8];
+	        int len = matches[1].rm_eo - matches[1].rm_so;
+	        strncpy(rating_str, buffer + matches[1].rm_so, len);
+	        rating_str[len] = '\0';
+	        white_rating = atoi(rating_str);
+	    }
+
+	    // Extraire le nom du joueur noir
+	    char black_name[64] = "";
+	    if (regexec(&black_regex, buffer, 2, matches, 0) == 0) {
+	        int len = matches[1].rm_eo - matches[1].rm_so;
+	        strncpy(black_name, buffer + matches[1].rm_so, len);
+	        black_name[len] = '\0';
+	    }
+
+	    // Extraire le titre du joueur noir (s'il existe)
+	    char black_title[8] = "";
+	    if (regexec(&black_title_regex, buffer, 2, matches, 0) == 0) {
+	        int len = matches[1].rm_eo - matches[1].rm_so;
+	        strncpy(black_title, buffer + matches[1].rm_so, len);
+	        black_title[len] = '\0';
+	    }
+
+	    // Extraire le rating du joueur noir
+	    int black_rating = 0;
+	    if (regexec(&black_rating_regex, buffer, 2, matches, 0) == 0) {
+	        char rating_str[8];
+	        int len = matches[1].rm_eo - matches[1].rm_so;
+	        strncpy(rating_str, buffer + matches[1].rm_so, len);
+	        rating_str[len] = '\0';
+	        black_rating = atoi(rating_str);
+	    }
+
+	    // Utiliser les données extraites
+	    if (white_name[0] != '\0') {
+	        debug_log(0, white_name, 0);
+	        if (white_title[0] != '\0') {
+	            debug_log(0, white_title, 0);
+	        }
+	        debug_log(0, &white_rating, 0);
+	    }
+
+	    if (black_name[0] != '\0') {
+	        debug_log(0, black_name, 0);
+	        if (black_title[0] != '\0') {
+	            debug_log(0, black_title, 0);
+	        }
+	        debug_log(0, &black_rating, 0);
+	    }
+
+	    // Libérer les ressources
+	    regfree(&white_regex);
+	    regfree(&black_regex);
+	    regfree(&white_title_regex);
+	    regfree(&black_title_regex);
+	    regfree(&white_rating_regex);
+	    regfree(&black_rating_regex);
+}
+
+void init_board_state() {
+    for (int i = 0; i < BOARD_SIZE; i++) {
+        for (int j = 0; j < BOARD_SIZE; j++) {
+            previous_board[i][j] = ' ';
+            draw_board('!', i, j);
+        }
+    }
+}
+
