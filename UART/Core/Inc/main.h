@@ -33,6 +33,7 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 #include "stm32746g_discovery_lcd.h"
 #include "debug.h"
+#include "stream_process.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

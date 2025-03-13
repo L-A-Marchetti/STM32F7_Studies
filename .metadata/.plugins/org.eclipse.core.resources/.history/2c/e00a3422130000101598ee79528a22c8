@@ -1,0 +1,90 @@
+/*
+ * stream_process.c
+ *
+ *  Created on: Mar 13, 2025
+ *      Author: lam
+ */
+
+#include "stream_process.h"
+#include <ctype.h>
+#include <string.h>
+
+#define BOARD_SIZE 8
+
+static char previous_board[BOARD_SIZE][BOARD_SIZE];
+
+void draw_square(int row, int col) {
+    const int SQUARE_SIZE = PIECE_FONT_SIZE;
+    uint32_t square_color = ((row + col) % 2 == 0) ? LCD_COLOR_LIGHTGRAY : LCD_COLOR_BROWN;
+    BSP_LCD_SetBackColor(square_color);
+    BSP_LCD_FillRect(col * SQUARE_SIZE + 150, row * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
+}
+
+void draw_piece(const char piece, int row, int col) {
+    if (piece == ' ') return;
+    BSP_LCD_SetFont(&Font24); // Assurez-vous d'utiliser la bonne police
+    char display_piece = piece;
+    if (islower(piece)) {
+        BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
+        display_piece = toupper(piece);
+    } else {
+        BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
+    }
+    char piece_str[2] = {display_piece, '\0'};
+    BSP_LCD_DisplayStringAt(col * PIECE_FONT_SIZE + 150, row * PIECE_FONT_SIZE, (uint8_t*)piece_str, LEFT_MODE);
+}
+
+void update_board(const char piece, int row, int col) {
+    if (previous_board[row][col] == piece) return;
+
+    draw_square(row, col);
+
+    previous_board[row][col] = piece;
+    if (piece != ' ') {
+        draw_piece(piece, row, col);
+    }
+}
+
+void parse_fen(const char* fen) {
+    int row = 0, col = 0;
+    while (*fen && *fen != ' ') {
+        if (*fen == '/') {
+            row++;
+            col = 0;
+        } else if (*fen >= '1' && *fen <= '8') {
+            int empty_squares = *fen - '0';
+            for (int i = 0; i < empty_squares; i++) {
+                update_board(' ', row, col);
+                col++;
+            }
+        } else {
+            update_board(*fen, row, col);
+            col++;
+        }
+        fen++;
+    }
+}
+
+void process_stream(const char* buffer) {
+    const char* fen_start = strstr(buffer, "\"fen\":\"");
+    if (fen_start) {
+        fen_start += 7; // Sauter "fen":"
+        const char* fen_end = strchr(fen_start, '"');
+        if (fen_end) {
+            char fen[128];
+            int fen_length = fen_end - fen_start;
+            strncpy(fen, fen_start, fen_length);
+            fen[fen_length] = '\0';
+            parse_fen(fen);
+        }
+    }
+}
+
+void init_board_state() {
+    for (int row = 0; row < BOARD_SIZE; row++) {
+        for (int col = 0; col < BOARD_SIZE; col++) {
+            previous_board[row][col] = ' ';
+            draw_square(row, col);
+        }
+    }
+}

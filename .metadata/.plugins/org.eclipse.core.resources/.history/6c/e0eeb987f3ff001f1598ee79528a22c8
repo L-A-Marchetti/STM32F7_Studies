@@ -1,0 +1,13 @@
+/*
+ * stream_process.h
+ *
+ *  Created on: Mar 13, 2025
+ *      Author: lam
+ */
+
+#ifndef INC_STREAM_PROCESS_H_
+#define INC_STREAM_PROCESS_H_
+
+void process_stream(const char* buffer);
+
+#endif /* INC_STREAM_PROCESS_H_ */

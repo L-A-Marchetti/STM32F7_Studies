@@ -1,86 +1,115 @@
-01:58:16 **** Incremental Build of configuration Debug for project UART ****
+15:28:05 **** Incremental Build of configuration Debug for project UART ****
 make -j8 all 
+arm-none-eabi-gcc "../USB_HOST/Target/usbh_conf.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_HOST/Target/usbh_conf.d" -MT"USB_HOST/Target/usbh_conf.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "USB_HOST/Target/usbh_conf.o"
+arm-none-eabi-gcc "../USB_HOST/App/usb_host.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_HOST/App/usb_host.d" -MT"USB_HOST/App/usb_host.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "USB_HOST/App/usb_host.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FatFs/src/option/syscall.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/FatFs/src/option/syscall.d" -MT"Middlewares/Third_Party/FatFs/src/option/syscall.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FatFs/src/option/syscall.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FatFs/src/diskio.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/FatFs/src/diskio.d" -MT"Middlewares/Third_Party/FatFs/src/diskio.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FatFs/src/diskio.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FatFs/src/ff.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/FatFs/src/ff.d" -MT"Middlewares/Third_Party/FatFs/src/ff.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FatFs/src/ff.o"
+arm-none-eabi-gcc "../Middlewares/Third_Party/FatFs/src/ff_gen_drv.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/FatFs/src/ff_gen_drv.d" -MT"Middlewares/Third_Party/FatFs/src/ff_gen_drv.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FatFs/src/ff_gen_drv.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.d" -MT"Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_core.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ctlreq.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ctlreq.d" -MT"Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ctlreq.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ctlreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ioreq.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ioreq.d" -MT"Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ioreq.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_ioreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_pipes.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_pipes.d" -MT"Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_pipes.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/STM32_USB_Host_Library/Core/Src/usbh_pipes.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Src/usbh_cdc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Src/usbh_cdc.d" -MT"Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Src/usbh_cdc.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Src/usbh_cdc.o"
+arm-none-eabi-gcc "../FATFS/Target/sd_diskio.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"FATFS/Target/sd_diskio.d" -MT"FATFS/Target/sd_diskio.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "FATFS/Target/sd_diskio.o"
+arm-none-eabi-gcc "../FATFS/App/fatfs.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"FATFS/App/fatfs.d" -MT"FATFS/App/fatfs.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "FATFS/App/fatfs.o"
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c:1513:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
- 1513 | static void MX_GPIO_Init(void)
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_hal_msp.d" -MT"Core/Src/stm32f7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_hal_msp.o"
+../Core/Src/main.c:1516:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+ 1516 | static void MX_GPIO_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:1462:13: warning: 'MX_FMC_Init' defined but not used [-Wunused-function]
- 1462 | static void MX_FMC_Init(void)
+../Core/Src/main.c:1465:13: warning: 'MX_FMC_Init' defined but not used [-Wunused-function]
+ 1465 | static void MX_FMC_Init(void)
       |             ^~~~~~~~~~~
-../Core/Src/main.c:1431:13: warning: 'MX_USART6_UART_Init' defined but not used [-Wunused-function]
- 1431 | static void MX_USART6_UART_Init(void)
+../Core/Src/main.c:1434:13: warning: 'MX_USART6_UART_Init' defined but not used [-Wunused-function]
+ 1434 | static void MX_USART6_UART_Init(void)
       |             ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:1350:13: warning: 'MX_TIM12_Init' defined but not used [-Wunused-function]
- 1350 | static void MX_TIM12_Init(void)
+../Core/Src/main.c:1353:13: warning: 'MX_TIM12_Init' defined but not used [-Wunused-function]
+ 1353 | static void MX_TIM12_Init(void)
       |             ^~~~~~~~~~~~~
-../Core/Src/main.c:1303:13: warning: 'MX_TIM8_Init' defined but not used [-Wunused-function]
- 1303 | static void MX_TIM8_Init(void)
+../Core/Src/main.c:1306:13: warning: 'MX_TIM8_Init' defined but not used [-Wunused-function]
+ 1306 | static void MX_TIM8_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:1244:13: warning: 'MX_TIM5_Init' defined but not used [-Wunused-function]
- 1244 | static void MX_TIM5_Init(void)
+../Core/Src/main.c:1247:13: warning: 'MX_TIM5_Init' defined but not used [-Wunused-function]
+ 1247 | static void MX_TIM5_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:1185:13: warning: 'MX_TIM3_Init' defined but not used [-Wunused-function]
- 1185 | static void MX_TIM3_Init(void)
+../Core/Src/main.c:1188:13: warning: 'MX_TIM3_Init' defined but not used [-Wunused-function]
+ 1188 | static void MX_TIM3_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:1126:13: warning: 'MX_TIM2_Init' defined but not used [-Wunused-function]
- 1126 | static void MX_TIM2_Init(void)
+../Core/Src/main.c:1129:13: warning: 'MX_TIM2_Init' defined but not used [-Wunused-function]
+ 1129 | static void MX_TIM2_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:1046:13: warning: 'MX_TIM1_Init' defined but not used [-Wunused-function]
- 1046 | static void MX_TIM1_Init(void)
+../Core/Src/main.c:1049:13: warning: 'MX_TIM1_Init' defined but not used [-Wunused-function]
+ 1049 | static void MX_TIM1_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:1006:13: warning: 'MX_SPI2_Init' defined but not used [-Wunused-function]
- 1006 | static void MX_SPI2_Init(void)
+../Core/Src/main.c:1009:13: warning: 'MX_SPI2_Init' defined but not used [-Wunused-function]
+ 1009 | static void MX_SPI2_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:970:13: warning: 'MX_SPDIFRX_Init' defined but not used [-Wunused-function]
-  970 | static void MX_SPDIFRX_Init(void)
+../Core/Src/main.c:973:13: warning: 'MX_SPDIFRX_Init' defined but not used [-Wunused-function]
+  973 | static void MX_SPDIFRX_Init(void)
       |             ^~~~~~~~~~~~~~~
-../Core/Src/main.c:942:13: warning: 'MX_SDMMC1_SD_Init' defined but not used [-Wunused-function]
-  942 | static void MX_SDMMC1_SD_Init(void)
+../Core/Src/main.c:945:13: warning: 'MX_SDMMC1_SD_Init' defined but not used [-Wunused-function]
+  945 | static void MX_SDMMC1_SD_Init(void)
       |             ^~~~~~~~~~~~~~~~~
-../Core/Src/main.c:867:13: warning: 'MX_SAI2_Init' defined but not used [-Wunused-function]
-  867 | static void MX_SAI2_Init(void)
+../Core/Src/main.c:870:13: warning: 'MX_SAI2_Init' defined but not used [-Wunused-function]
+  870 | static void MX_SAI2_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:771:13: warning: 'MX_RTC_Init' defined but not used [-Wunused-function]
-  771 | static void MX_RTC_Init(void)
+../Core/Src/main.c:774:13: warning: 'MX_RTC_Init' defined but not used [-Wunused-function]
+  774 | static void MX_RTC_Init(void)
       |             ^~~~~~~~~~~
-../Core/Src/main.c:736:13: warning: 'MX_QUADSPI_Init' defined but not used [-Wunused-function]
-  736 | static void MX_QUADSPI_Init(void)
+../Core/Src/main.c:739:13: warning: 'MX_QUADSPI_Init' defined but not used [-Wunused-function]
+  739 | static void MX_QUADSPI_Init(void)
       |             ^~~~~~~~~~~~~~~
-../Core/Src/main.c:674:13: warning: 'MX_LTDC_Init' defined but not used [-Wunused-function]
-  674 | static void MX_LTDC_Init(void)
+../Core/Src/main.c:677:13: warning: 'MX_LTDC_Init' defined but not used [-Wunused-function]
+  677 | static void MX_LTDC_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:626:13: warning: 'MX_I2C3_Init' defined but not used [-Wunused-function]
-  626 | static void MX_I2C3_Init(void)
+../Core/Src/main.c:629:13: warning: 'MX_I2C3_Init' defined but not used [-Wunused-function]
+  629 | static void MX_I2C3_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:578:13: warning: 'MX_I2C1_Init' defined but not used [-Wunused-function]
-  578 | static void MX_I2C1_Init(void)
+../Core/Src/main.c:581:13: warning: 'MX_I2C1_Init' defined but not used [-Wunused-function]
+  581 | static void MX_I2C1_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:529:13: warning: 'MX_ETH_Init' defined but not used [-Wunused-function]
-  529 | static void MX_ETH_Init(void)
+../Core/Src/main.c:532:13: warning: 'MX_ETH_Init' defined but not used [-Wunused-function]
+  532 | static void MX_ETH_Init(void)
       |             ^~~~~~~~~~~
-../Core/Src/main.c:492:13: warning: 'MX_DMA2D_Init' defined but not used [-Wunused-function]
-  492 | static void MX_DMA2D_Init(void)
+../Core/Src/main.c:495:13: warning: 'MX_DMA2D_Init' defined but not used [-Wunused-function]
+  495 | static void MX_DMA2D_Init(void)
       |             ^~~~~~~~~~~~~
-../Core/Src/main.c:455:13: warning: 'MX_DCMI_Init' defined but not used [-Wunused-function]
-  455 | static void MX_DCMI_Init(void)
+../Core/Src/main.c:458:13: warning: 'MX_DCMI_Init' defined but not used [-Wunused-function]
+  458 | static void MX_DCMI_Init(void)
       |             ^~~~~~~~~~~~
-../Core/Src/main.c:424:13: warning: 'MX_CRC_Init' defined but not used [-Wunused-function]
-  424 | static void MX_CRC_Init(void)
+../Core/Src/main.c:427:13: warning: 'MX_CRC_Init' defined but not used [-Wunused-function]
+  427 | static void MX_CRC_Init(void)
       |             ^~~~~~~~~~~
-../Core/Src/main.c:372:13: warning: 'MX_ADC3_Init' defined but not used [-Wunused-function]
-  372 | static void MX_ADC3_Init(void)
+../Core/Src/main.c:375:13: warning: 'MX_ADC3_Init' defined but not used [-Wunused-function]
+  375 | static void MX_ADC3_Init(void)
       |             ^~~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/stm32f7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_it.d" -MT"Core/Src/stm32f7xx_it.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/stream_process.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/Components" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stream_process.d" -MT"Core/Src/stream_process.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stream_process.o"
+../Core/Src/stream_process.c: In function 'draw_board':
+../Core/Src/stream_process.c:34:9: warning: implicit declaration of function 'islower' [-Wimplicit-function-declaration]
+   34 |     if (islower(piece)) {
+      |         ^~~~~~~
+../Core/Src/stream_process.c:10:1: note: include '<ctype.h>' or provide a declaration of 'islower'
+    9 | #include <string.h>
+  +++ |+#include <ctype.h>
+   10 | 
+../Core/Src/stream_process.c:36:25: warning: implicit declaration of function 'toupper' [-Wimplicit-function-declaration]
+   36 |         display_piece = toupper(piece);
+      |                         ^~~~~~~
+../Core/Src/stream_process.c:36:25: note: include '<ctype.h>' or provide a declaration of 'toupper'
 arm-none-eabi-gcc -o "UART.elf" @"objects.list"   -mcpu=cortex-m7 -T"/home/lam/Documents/embedded/STM32F7_Studies/UART/STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: UART.elf
  
 arm-none-eabi-size  UART.elf 
 arm-none-eabi-objdump -h -S UART.elf  > "UART.list"
    text	   data	    bss	    dec	    hex	filename
-  47956	     36	   4092	  52084	   cb74	UART.elf
+  49288	     44	   4156	  53488	   d0f0	UART.elf
 Finished building: default.size.stdout
  
 Finished building: UART.list
  
 
-01:58:17 Build Finished. 0 errors, 23 warnings. (took 1s.41ms)
+15:28:07 Build Finished. 0 errors, 25 warnings. (took 2s.96ms)
 

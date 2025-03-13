@@ -1,0 +1,4 @@
+../Core/Src/stream_process.c:18:6:draw_board	4
+../Core/Src/stream_process.c:49:6:parse_fen	7
+../Core/Src/stream_process.c:71:6:process_stream	3
+../Core/Src/stream_process.c:87:6:init_board_state	3

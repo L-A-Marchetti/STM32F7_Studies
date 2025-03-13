@@ -159,7 +159,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
             if (received_data == '\n' || received_data == '\r' || rx_index == RX_BUFFER_SIZE - 1)
             {
                 rx_buffer[rx_index-1] = '\0';
-                debug_log(0, (char*)rx_buffer, 0);
+                process_stream((char*)rx_buffer);
+                //debug_log(0, (char*)rx_buffer, 0);
                 rx_index = 0;
             }
         }
@@ -234,7 +235,9 @@ int main(void)
   /* Set LCD Foreground Layer  */
   BSP_LCD_SelectLayer(LTDC_ACTIVE_LAYER);
   debug_log(1, "LCD Initialized", 0);
+  init_board_state();
   MX_USART1_UART_Init();
+  BSP_LCD_Clear(LCD_COLOR_BLACK);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */

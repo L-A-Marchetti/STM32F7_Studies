@@ -56,7 +56,7 @@ Core/Src/stm32f7xx_hal_msp.o: ../Core/Src/stm32f7xx_hal_msp.c \
  /home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sdram.h \
  /home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h \
  /home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h \
- ../Core/Inc/debug.h
+ ../Core/Inc/debug.h ../Core/Inc/stream_process.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../Core/Inc/stm32f7xx_hal_conf.h:
@@ -116,3 +116,4 @@ Core/Src/stm32f7xx_hal_msp.o: ../Core/Src/stm32f7xx_hal_msp.c \
 /home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h:
 /home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h:
 ../Core/Inc/debug.h:
+../Core/Inc/stream_process.h:

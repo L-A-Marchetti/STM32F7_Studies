@@ -56,7 +56,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  /home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sdram.h \
  /home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h \
  /home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h \
- ../Core/Inc/debug.h \
+ ../Core/Inc/debug.h ../Core/Inc/stream_process.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
@@ -140,6 +140,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 /home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h:
 /home/lam/Documents/embedded/STM32F7_Studies/UART/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h:
 ../Core/Inc/debug.h:
+../Core/Inc/stream_process.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
