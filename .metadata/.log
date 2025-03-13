@@ -1203,3 +1203,39 @@ Command-line arguments:  -data /home/lam/Documents/embedded/STM32F7_Studies -os 
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-03-12 16:08:35.178
 !MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-03-12 23:29:31.911
+!MESSAGE Indexed 'UART' (20 sources, 82 headers) in 2.37 sec: 5,516 declarations; 33,524 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0051%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-03-12 23:31:49.440
+!MESSAGE Indexed 'UART' (20 sources, 82 headers) in 1.95 sec: 5,516 declarations; 33,524 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0051%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-03-12 23:32:55.494
+!MESSAGE Indexed 'UART' (77 sources, 149 headers) in 4.35 sec: 17,146 declarations; 131,056 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0013%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-03-12 23:34:03.643
+!MESSAGE Indexed 'UART' (103 sources, 184 headers) in 3.85 sec: 21,034 declarations; 149,426 references; 7 unresolved inclusions; 1 syntax errors; 23 unresolved names (0.013%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2025-03-12 23:34:52.661
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2025-03-12 23:35:33.725
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2025-03-12 23:36:10.381
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+!SESSION 2025-03-13 00:57:30.143 -----------------------------------------------
+eclipse.buildId=Version 1.16.1
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-03-13 00:57:40.156
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-03-13 00:57:40.157
+!MESSAGE Log4j2 initialized with config file /home/lam/Documents/embedded/STM32F7_Studies/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-03-13 00:57:48.617
+!MESSAGE Started RMI Server, listening on port 41337

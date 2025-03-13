@@ -18,14 +18,14 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "string.h"
 #include "cmsis_os.h"
 #include "fatfs.h"
+#include "lwip.h"
 #include "usb_host.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "request.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,25 +44,6 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-#if defined ( __ICCARM__ ) /*!< IAR Compiler */
-#pragma location=0x2004c000
-ETH_DMADescTypeDef  DMARxDscrTab[ETH_RX_DESC_CNT]; /* Ethernet Rx DMA Descriptors */
-#pragma location=0x2004c0a0
-ETH_DMADescTypeDef  DMATxDscrTab[ETH_TX_DESC_CNT]; /* Ethernet Tx DMA Descriptors */
-
-#elif defined ( __CC_ARM )  /* MDK ARM Compiler */
-
-__attribute__((at(0x2004c000))) ETH_DMADescTypeDef  DMARxDscrTab[ETH_RX_DESC_CNT]; /* Ethernet Rx DMA Descriptors */
-__attribute__((at(0x2004c0a0))) ETH_DMADescTypeDef  DMATxDscrTab[ETH_TX_DESC_CNT]; /* Ethernet Tx DMA Descriptors */
-
-#elif defined ( __GNUC__ ) /* GNU Compiler */
-
-ETH_DMADescTypeDef DMARxDscrTab[ETH_RX_DESC_CNT] __attribute__((section(".RxDecripSection"))); /* Ethernet Rx DMA Descriptors */
-ETH_DMADescTypeDef DMATxDscrTab[ETH_TX_DESC_CNT] __attribute__((section(".TxDecripSection")));   /* Ethernet Tx DMA Descriptors */
-#endif
-
-ETH_TxPacketConfig TxConfig;
-
 ADC_HandleTypeDef hadc3;
 
 CRC_HandleTypeDef hcrc;
@@ -70,8 +51,6 @@ CRC_HandleTypeDef hcrc;
 DCMI_HandleTypeDef hdcmi;
 
 DMA2D_HandleTypeDef hdma2d;
-
-ETH_HandleTypeDef heth;
 
 I2C_HandleTypeDef hi2c1;
 I2C_HandleTypeDef hi2c3;
@@ -105,7 +84,6 @@ SDRAM_HandleTypeDef hsdram1;
 
 osThreadId defaultTaskHandle;
 /* USER CODE BEGIN PV */
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -116,7 +94,6 @@ static void MX_ADC3_Init(void);
 static void MX_CRC_Init(void);
 static void MX_DCMI_Init(void);
 static void MX_DMA2D_Init(void);
-static void MX_ETH_Init(void);
 static void MX_FMC_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_I2C3_Init(void);
@@ -170,38 +147,37 @@ int main(void)
   SystemClock_Config();
 
   /* Configure the peripherals common clocks */
-  //PeriphCommonClock_Config();
+  PeriphCommonClock_Config();
 
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  //MX_GPIO_Init();
-  //MX_ADC3_Init();
-  //MX_CRC_Init();
-  //MX_DCMI_Init();
-  //MX_DMA2D_Init();
-  //MX_ETH_Init();
-  //MX_FMC_Init();
-  //MX_I2C1_Init();
-  //MX_I2C3_Init();
-  //MX_LTDC_Init();
-  //MX_QUADSPI_Init();
-  //MX_RTC_Init();
-  //MX_SAI2_Init();
-  //MX_SDMMC1_SD_Init();
-  //MX_SPDIFRX_Init();
-  //MX_SPI2_Init();
-  //MX_TIM1_Init();
-  //MX_TIM2_Init();
-  //MX_TIM3_Init();
-  //MX_TIM5_Init();
-  //MX_TIM8_Init();
-  //MX_TIM12_Init();
-  //MX_USART1_UART_Init();
-  //MX_USART6_UART_Init();
-  //MX_FATFS_Init();
+  MX_GPIO_Init();
+  MX_ADC3_Init();
+  MX_CRC_Init();
+  MX_DCMI_Init();
+  MX_DMA2D_Init();
+  MX_FMC_Init();
+  MX_I2C1_Init();
+  MX_I2C3_Init();
+  MX_LTDC_Init();
+  MX_QUADSPI_Init();
+  MX_RTC_Init();
+  MX_SAI2_Init();
+  MX_SDMMC1_SD_Init();
+  MX_SPDIFRX_Init();
+  MX_SPI2_Init();
+  MX_TIM1_Init();
+  MX_TIM2_Init();
+  MX_TIM3_Init();
+  MX_TIM5_Init();
+  MX_TIM8_Init();
+  MX_TIM12_Init();
+  MX_USART1_UART_Init();
+  MX_USART6_UART_Init();
+  MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
   BSP_LCD_Init();
     /* Initialize the LCD Layers */
@@ -210,7 +186,7 @@ int main(void)
     /* Set LCD Foreground Layer  */
     BSP_LCD_SelectLayer(LTDC_ACTIVE_LAYER);
 
-    BSP_LCD_SetFont(&LCD_DEFAULT_FONT);
+    BSP_LCD_SetFont(&Font12);
 
     /* Clear the LCD */
     BSP_LCD_SetBackColor(LCD_COLOR_BLACK);
@@ -225,6 +201,9 @@ int main(void)
 
     /* Display LCD messages */
     BSP_LCD_DisplayStringAt(0, y_center, (uint8_t *)"Hello, there!", CENTER_MODE);
+    //Custom_LWIP_Init();
+
+    send_lichess_request();
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -506,55 +485,6 @@ static void MX_DMA2D_Init(void)
   /* USER CODE BEGIN DMA2D_Init 2 */
 
   /* USER CODE END DMA2D_Init 2 */
-
-}
-
-/**
-  * @brief ETH Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_ETH_Init(void)
-{
-
-  /* USER CODE BEGIN ETH_Init 0 */
-
-  /* USER CODE END ETH_Init 0 */
-
-   static uint8_t MACAddr[6];
-
-  /* USER CODE BEGIN ETH_Init 1 */
-
-  /* USER CODE END ETH_Init 1 */
-  heth.Instance = ETH;
-  MACAddr[0] = 0x00;
-  MACAddr[1] = 0x80;
-  MACAddr[2] = 0xE1;
-  MACAddr[3] = 0x00;
-  MACAddr[4] = 0x00;
-  MACAddr[5] = 0x00;
-  heth.Init.MACAddr = &MACAddr[0];
-  heth.Init.MediaInterface = HAL_ETH_RMII_MODE;
-  heth.Init.TxDesc = DMATxDscrTab;
-  heth.Init.RxDesc = DMARxDscrTab;
-  heth.Init.RxBuffLen = 1524;
-
-  /* USER CODE BEGIN MACADDRESS */
-
-  /* USER CODE END MACADDRESS */
-
-  if (HAL_ETH_Init(&heth) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  memset(&TxConfig, 0 , sizeof(ETH_TxPacketConfig));
-  TxConfig.Attributes = ETH_TX_PACKETS_FEATURES_CSUM | ETH_TX_PACKETS_FEATURES_CRCPAD;
-  TxConfig.ChecksumCtrl = ETH_CHECKSUM_IPHDR_PAYLOAD_INSERT_PHDR_CALC;
-  TxConfig.CRCPadCtrl = ETH_CRC_PAD_INSERT;
-  /* USER CODE BEGIN ETH_Init 2 */
-
-  /* USER CODE END ETH_Init 2 */
 
 }
 
@@ -1667,6 +1597,9 @@ void StartDefaultTask(void const * argument)
 {
   /* init code for USB_HOST */
   MX_USB_HOST_Init();
+
+  /* init code for LWIP */
+  MX_LWIP_Init();
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
   for(;;)

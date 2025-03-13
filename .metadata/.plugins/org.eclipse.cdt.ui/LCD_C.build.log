@@ -1,89 +1,17 @@
-16:17:31 **** Incremental Build of configuration Debug for project LCD_C ****
+23:15:35 **** Incremental Build of configuration Debug for project LCD_C ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/LCD_C/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/LCD_C/Utilities/Fonts" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c:1497:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
- 1497 | static void MX_GPIO_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:1446:13: warning: 'MX_FMC_Init' defined but not used [-Wunused-function]
- 1446 | static void MX_FMC_Init(void)
-      |             ^~~~~~~~~~~
-../Core/Src/main.c:1415:13: warning: 'MX_USART6_UART_Init' defined but not used [-Wunused-function]
- 1415 | static void MX_USART6_UART_Init(void)
-      |             ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:1380:13: warning: 'MX_USART1_UART_Init' defined but not used [-Wunused-function]
- 1380 | static void MX_USART1_UART_Init(void)
-      |             ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:1338:13: warning: 'MX_TIM12_Init' defined but not used [-Wunused-function]
- 1338 | static void MX_TIM12_Init(void)
-      |             ^~~~~~~~~~~~~
-../Core/Src/main.c:1291:13: warning: 'MX_TIM8_Init' defined but not used [-Wunused-function]
- 1291 | static void MX_TIM8_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:1232:13: warning: 'MX_TIM5_Init' defined but not used [-Wunused-function]
- 1232 | static void MX_TIM5_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:1173:13: warning: 'MX_TIM3_Init' defined but not used [-Wunused-function]
- 1173 | static void MX_TIM3_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:1114:13: warning: 'MX_TIM2_Init' defined but not used [-Wunused-function]
- 1114 | static void MX_TIM2_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:1034:13: warning: 'MX_TIM1_Init' defined but not used [-Wunused-function]
- 1034 | static void MX_TIM1_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:994:13: warning: 'MX_SPI2_Init' defined but not used [-Wunused-function]
-  994 | static void MX_SPI2_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:958:13: warning: 'MX_SPDIFRX_Init' defined but not used [-Wunused-function]
-  958 | static void MX_SPDIFRX_Init(void)
-      |             ^~~~~~~~~~~~~~~
-../Core/Src/main.c:930:13: warning: 'MX_SDMMC1_SD_Init' defined but not used [-Wunused-function]
-  930 | static void MX_SDMMC1_SD_Init(void)
-      |             ^~~~~~~~~~~~~~~~~
-../Core/Src/main.c:855:13: warning: 'MX_SAI2_Init' defined but not used [-Wunused-function]
-  855 | static void MX_SAI2_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:759:13: warning: 'MX_RTC_Init' defined but not used [-Wunused-function]
-  759 | static void MX_RTC_Init(void)
-      |             ^~~~~~~~~~~
-../Core/Src/main.c:724:13: warning: 'MX_QUADSPI_Init' defined but not used [-Wunused-function]
-  724 | static void MX_QUADSPI_Init(void)
-      |             ^~~~~~~~~~~~~~~
-../Core/Src/main.c:662:13: warning: 'MX_LTDC_Init' defined but not used [-Wunused-function]
-  662 | static void MX_LTDC_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:614:13: warning: 'MX_I2C3_Init' defined but not used [-Wunused-function]
-  614 | static void MX_I2C3_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:566:13: warning: 'MX_I2C1_Init' defined but not used [-Wunused-function]
-  566 | static void MX_I2C1_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:517:13: warning: 'MX_ETH_Init' defined but not used [-Wunused-function]
-  517 | static void MX_ETH_Init(void)
-      |             ^~~~~~~~~~~
-../Core/Src/main.c:480:13: warning: 'MX_DMA2D_Init' defined but not used [-Wunused-function]
-  480 | static void MX_DMA2D_Init(void)
-      |             ^~~~~~~~~~~~~
-../Core/Src/main.c:443:13: warning: 'MX_DCMI_Init' defined but not used [-Wunused-function]
-  443 | static void MX_DCMI_Init(void)
-      |             ^~~~~~~~~~~~
-../Core/Src/main.c:412:13: warning: 'MX_CRC_Init' defined but not used [-Wunused-function]
-  412 | static void MX_CRC_Init(void)
-      |             ^~~~~~~~~~~
-../Core/Src/main.c:360:13: warning: 'MX_ADC3_Init' defined but not used [-Wunused-function]
-  360 | static void MX_ADC3_Init(void)
-      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F746xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../USB_HOST/App -I../USB_HOST/Target -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I"/home/lam/Documents/embedded/STM32F7_Studies/LCD_C/Drivers/BSP/STM32746G-Discovery" -I"/home/lam/Documents/embedded/STM32F7_Studies/LCD_C/Utilities/Fonts" -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I../Drivers/BSP/Components/lan8742 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "LCD_C.elf" @"objects.list"   -mcpu=cortex-m7 -T"/home/lam/Documents/embedded/STM32F7_Studies/LCD_C/STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD_C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: LCD_C.elf
  
 arm-none-eabi-size  LCD_C.elf 
 arm-none-eabi-objdump -h -S LCD_C.elf  > "LCD_C.list"
    text	   data	    bss	    dec	    hex	filename
-  61964	    140	  38492	 100596	  188f4	LCD_C.elf
+ 201704	    516	  75844	 278064	  43e30	LCD_C.elf
 Finished building: default.size.stdout
  
 Finished building: LCD_C.list
  
 
-16:17:32 Build Finished. 0 errors, 24 warnings. (took 1s.30ms)
+23:15:38 Build Finished. 0 errors, 0 warnings. (took 2s.442ms)
 

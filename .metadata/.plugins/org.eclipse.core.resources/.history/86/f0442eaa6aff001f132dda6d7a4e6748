@@ -1,0 +1,31 @@
+/*
+ * request.h
+ *
+ *  Created on: Mar 12, 2025
+ *      Author: lam
+ */
+
+#ifndef INC_REQUEST_H_
+#define INC_REQUEST_H_
+
+#include "lwip/api.h"
+#include "lwip/sys.h"
+#include "lwip/netif.h"
+#include "lwip/dns.h"
+#include "lwip/sockets.h"
+#include "lwip/init.h"
+#include "lwip.h"
+
+struct netif gnetif;
+struct ip_addr ipaddr;
+struct ip_addr netmask;
+struct ip_addr gw;
+uint8_t IP_ADDRESS[4];
+uint8_t NETMASK_ADDRESS[4];
+uint8_t GATEWAY_ADDRESS[4];
+
+void Custom_LWIP_Init(void);
+void send_lichess_request(void);
+
+
+#endif /* INC_REQUEST_H_ */

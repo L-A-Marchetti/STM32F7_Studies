@@ -1,0 +1,2 @@
+../Core/Src/request.c:11:6:Custom_LWIP_Init	2
+../Core/Src/request.c:72:6:send_lichess_request	6

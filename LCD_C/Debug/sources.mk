@@ -46,6 +46,8 @@ Drivers/BSP/STM32746G-Discovery \
 Drivers/STM32F7xx_HAL_Driver/Src \
 FATFS/App \
 FATFS/Target \
+LWIP/App \
+LWIP/Target \
 Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Src \
 Middlewares/ST/STM32_USB_Host_Library/Core/Src \
 Middlewares/Third_Party/FatFs/src \
@@ -54,6 +56,14 @@ Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS \
 Middlewares/Third_Party/FreeRTOS/Source \
 Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 \
 Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang \
+Middlewares/Third_Party/LwIP/src/api \
+Middlewares/Third_Party/LwIP/src/apps/mqtt \
+Middlewares/Third_Party/LwIP/src/core \
+Middlewares/Third_Party/LwIP/src/core/ipv4 \
+Middlewares/Third_Party/LwIP/src/core/ipv6 \
+Middlewares/Third_Party/LwIP/src/netif \
+Middlewares/Third_Party/LwIP/src/netif/ppp \
+Middlewares/Third_Party/LwIP/system/OS \
 USB_HOST/App \
 USB_HOST/Target \
 
