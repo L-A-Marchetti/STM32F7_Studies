@@ -82,6 +82,38 @@ void process_stream(const char* buffer) {
 	        parse_fen(fen);
 	    }
 	}
+	const char* w_player_start = strstr(buffer, "\"players\":[{\"color\":\"white\",\"user\":{\"name\":\"");
+	if (w_player_start) {
+		w_player_start += 44;
+		const char* w_player_end = strchr(w_player_start, '"');
+		if (w_player_end) {
+			char w_player[128];
+			int w_player_length = w_player_end - w_player_start;
+			strncpy(w_player, w_player_start, w_player_length);
+			w_player[w_player_length] = '\0';
+			BSP_LCD_SetFont(&Font12);
+			BSP_LCD_SetBackColor(LCD_COLOR_WHITE);
+			BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
+			BSP_LCD_DisplayStringAt(0, 0, (uint8_t*)w_player, LEFT_MODE);
+		}
+	}
+
+	const char* b_player_start = strstr(buffer, "\"black\",\"user\":{\"name\":\"");
+	if (b_player_start) {
+	    b_player_start += 24; // Sauter jusqu'au début du nom
+	    const char* b_player_end = strchr(b_player_start, '"');
+	    if (b_player_end) {
+	        char b_player[128];
+	        int b_player_length = b_player_end - b_player_start;
+	        strncpy(b_player, b_player_start, b_player_length);
+	        b_player[b_player_length] = '\0';
+	        // Affichage du nom du joueur noir
+	        BSP_LCD_SetFont(&Font12);
+	        BSP_LCD_SetBackColor(LCD_COLOR_BROWN);
+	        BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
+	        BSP_LCD_DisplayStringAt(0, 0, (uint8_t*)b_player, RIGHT_MODE);
+	    }
+	}
 }
 
 void init_board_state() {
